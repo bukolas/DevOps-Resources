@@ -62,25 +62,25 @@ eksctl version
 
 ```bash
 eksctl create cluster --name=my-eks22 \
-                      --region=ap-south-1 \
-                      --zones=ap-south-1a,ap-south-1b \
+                      --region=eu-north-1 \
+                      --zones=eu-north-1a,eu-north-1b \
                       --without-nodegroup
 
 eksctl utils associate-iam-oidc-provider \
-    --region ap-south-1 \
+    --region eu-north-1 \
     --cluster my-eks22 \
     --approve
 
 eksctl create nodegroup --cluster=my-eks22 \
-                       --region=ap-south-1 \
+                       --region=eu-north-1 \
                        --name=node2 \
                        --node-type=t3.medium \
-                       --nodes=3 \
+                       --nodes=2 \
                        --nodes-min=2 \
-                       --nodes-max=4 \
+                       --nodes-max=2 \
                        --node-volume-size=20 \
                        --ssh-access \
-                       --ssh-public-key=Key \
+                       --ssh-public-key=devopskey \
                        --managed \
                        --asg-access \
                        --external-dns-access \
